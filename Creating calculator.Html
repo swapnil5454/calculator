@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin: 0px;
+            outline: 0px;
+            padding: 0px;
+        }
+        .con{
+            display: grid;
+            width: 35%;
+            margin: auto;
+            height: 80vh;
+            background-color: lightgrey;
+            top: 10vh;
+            position: relative;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 4px;
+            
+        }
+        .textfld{
+            grid-column: 1/5;
+        }
+        .textfld input{
+            width: 100%;
+            border: 0px;
+            background: transparent;
+            text-align: right;
+            padding-right: 5px;
+            box-sizing: border-box;
+        }
+        .con div{
+            text-align: center;
+            box-shadow: 0px 0px 5px 3px black;
+            font-size: 20px;
+            padding-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="textfld"><input type="text" value="0" id="res"></div>
+        <div onclick="fun('%')">%</div>
+        <div onclick="fun('AC')">AC</div>
+        <div onclick="fun('C')">C</div>
+        <div onclick="fun('+')">+</div>
+        <div onclick="fun('7')">7</div>
+        <div onclick="fun('8')">8</div>
+        <div onclick="fun('9')">9</div>
+        <div onclick="fun('-')">-</div>
+        <div onclick="fun('4')">4</div>
+        <div onclick="fun('5')">5</div>
+        <div onclick="fun('6')">6</div>
+        <div onclick="fun('*')">*</div>
+        <div onclick="fun('1')">1</div>
+        <div onclick="fun('2')">2</div>
+        <div onclick="fun('3')">3</div>
+        <div onclick="fun('/')">/</div>
+        <div onclick="fun('00')">00</div>
+        <div onclick="fun('0')">0</div>
+        <div onclick="fun('.')">.</div>
+        <div onclick="fun('=')">=</div>
+    </div>
+    <script>
+        let rs=""
+        function fun(d)
+        {
+            if(d=="AC")
+            {
+                rs="0"
+            }
+            else if(d=='C')
+            {
+                rs=rs.slice(0,rs.length-1)
+            }
+            else if(d=="=")
+            {
+                rs=eval(rs)
+            }
+            else
+            {
+                if(rs=="0")
+                {
+                    rs=d
+                }
+                else{
+                    rs=rs+d
+                }
+            }
+            document.getElementById("res").value=rs
+        }
+    </script>
+</body>
+</html>
